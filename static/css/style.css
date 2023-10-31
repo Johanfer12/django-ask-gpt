@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: #444654;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  color: #ccc;
+}
+
+.chat-box {
+  height: 300px;
+  overflow: auto;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  background-color: #333;
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+}
+
+.query-input {
+  flex: 1;
+  background-color: #333; /* color de fondo oscuro */
+  color: #ccc; /* color de texto gris claro */
+  border-radius: 10px;
+  height: 35px;
+}
+
+.query-button {
+  background-color: #333; /* color de fondo oscuro */
+  color: #ccc; /* color de texto gris claro */
+  border-radius: 10px;
+  margin-left: 5px;
+  height: 40px;
+}
+
+.chat-text {
+  color: #ccc; /* color de texto gris claro */
+}
+
+.usuario {
+  color: #b96bd1;
+  font-weight: bold;
+}
+
+.asistente {
+  color: #7bb7e7;
+  font-weight: bold;
+}
+
+.chat-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.app-container {
+  width: 50%;
+  margin: auto;
+  text-align: left; /* Alinea todo el contenido a la izquierda */
+}
+
+.usuario-text {
+  background-color: #333;
+  margin-left: 33px;
+  border-radius: 10px;
+  padding: 5px 5px;
+  display: inline-block;
+  text-align: left;
+  margin-top: -5px; /* Ajusta el valor aquí */
+}
+
+
+.asistente-text {
+  background-color: #333;
+  margin-left: 20px;
+  border-radius: 10px;
+  padding: 5px 5px;
+  display: inline-block;
+  text-align: left;
+  margin-top: -5px; /* Ajusta el valor aquí */
+  margin-bottom: -50px;
+  }
+
+.chat-box::-webkit-scrollbar {
+  width: 10px;  /* Ancho del scrollbar */
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #333;  /* Color de fondo del scrollbar */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Color del thumb del scrollbar */
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Color del thumb del scrollbar al pasar el cursor por encima */
+  border-radius: 10px;
+}
+
+.spinner-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}

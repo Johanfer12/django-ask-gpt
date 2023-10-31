@@ -1,0 +1,68 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static '/css/style.css' %}">
+        <link rel="icon" href="{% static 'icons/favicon.ico' %}" type="image/x-icon">
+        <title>{% block title %}Ask GPT{% endblock %}</title>
+        {% csrf_token %}  <!-- Agrega el token CSRF en el formulario -->
+    </head>
+    <body>
+        <h1 class="title">Chat con IdeaxGPT</h1>
+        <div id="query-output">
+            <!-- Los resultados del chat se mostrarán aquí -->
+        </div>
+        <div class="chat-box">
+            <form id="chat-form">
+                <input
+                    id="query-input"
+                    type="text"
+                    placeholder="Escribe tu pregunta aquí..."
+                    class="query-input"
+                    name="user_question"
+                />
+                <button id="query-button" class="query-button" type="submit">Enviar</button>
+            </form>
+        </div>
+        <script>
+            // Tu código JavaScript para manejar la interacción del chat con el servidor
+            document.getElementById("chat-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const userQuestion = document.getElementById("query-input").value;
+                
+                fetch("", {
+                    method: "POST",
+                    body: new URLSearchParams({ "user_question": userQuestion }),
+                    headers: {
+                        "X-CSRFToken": getCookie("csrftoken")  // Obtiene el token CSRF desde las cookies
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const queryOutput = document.getElementById("query-output");
+                    queryOutput.innerHTML = data.response;
+                });
+            });
+    
+            // Función para obtener el token CSRF desde las cookies
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== "") {
+                    const cookies = document.cookie.split(";");
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === name + "=") {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        </script>
+    </body>
+    </html>
