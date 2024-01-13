@@ -11,11 +11,10 @@
 <body>
   <header>
       <div>
-          <a href="/">
-              <img id="logo" src="{% static 'images/logo.png' %}" alt="Logo">              
-              <a href="/">Chat</a>
-              <a href="/documents/">Data</a>
-          </a>
+        <img id="logo" src="{% static 'images/logo.png' %}" alt="Logo">   
+        <a href="/" style="margin-right: 10px; font-weight: bold; text-decoration: none; color: #CCCCCC;">                         
+          <span style="margin-left: 50px; margin-right: 10px">Chat</span> - <a href="/documents/" style="font-weight: bold; text-decoration: none; color: #CCCCCC;">Data</a>
+       </a>      
       </div>
   </header>
   {% block content %}
