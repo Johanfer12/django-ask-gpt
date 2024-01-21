@@ -10,6 +10,17 @@ body {
   color: #ccc;
 }
 
+.title-upload {
+  text-align: left;
+  font-size: 20px;
+  color: #ccc;
+  margin-top: 35px;
+}
+
+.list-item {
+  color: #d1a1ec;
+}
+
 .chat-box {
   height: 300px;
   overflow: auto;
@@ -42,7 +53,24 @@ body {
   color: #ccc; /* color de texto gris claro */
   border-radius: 10px;
   margin-left: 5px;
+  margin-bottom: 5px;
   height: 40px;
+}
+
+.process-button {
+  margin-top: 15px;
+  margin-left: 30px;
+}
+ 
+.upload-button {
+  background-color: #333; /* color de fondo oscuro */
+  color: #ccc; /* color de texto gris claro */
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-bottom: 30px;
+  height: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .chat-text {

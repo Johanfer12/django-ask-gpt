@@ -1,0 +1,47 @@
+{% extends "menu.html" %}
+{% load static %}
+
+{% block content %}
+<div class="content-wrapper">
+    <h3 class="title-upload">Process Docs</h3>
+
+    <!-- Form for uploading files -->
+    <div class="input-group">
+        <form method="post" enctype="multipart/form-data" class="upload-form" id="upload-form">
+            {% csrf_token %}
+            <label class="upload-button" for="file-upload">Upload File</label>
+            <input id="file-upload" type="file" name="{{ form.file.name }}" style="display: none;" onchange="document.getElementById('upload-form').submit();"/>
+        </form>
+    </div>
+
+    <!-- Form for processing files -->
+    <div class="input-group">
+        <form method="post" action="{% url 'process_files' %}" class="process-form">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="process">
+            <button type="submit" class="query-button process-button">Process</button>
+        </form>
+    </div>
+
+    <div class="file-lists">
+        <div class="uploaded-files">
+            <h3 class="title-upload">Uploaded Files:</h3>
+            <ul>
+                {% for file in uploaded_files %}
+                    <li class="list-item">{{ file }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="processed-files">
+            <h3 class="title-upload">Processed Files:</h3>
+            <ul>
+                {% for file in processed_files %}
+                    <li class="list-item">{{ file }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
