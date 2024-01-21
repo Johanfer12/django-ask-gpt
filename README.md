@@ -1,6 +1,6 @@
 # Ask your Docs
 
-This Django model enhances your document interaction by integrating OpenAI's text embedding and GPT-3.5-turbo chat completion models. It simplifies querying a collection of precomputed text embeddings and generating responses using GPT-3.5-turbo. (Document embedding feature in progress.)
+This Django model enhances your document interaction by integrating OpenAI's text embedding and GPT-3.5-turbo chat completion models. It simplifies querying a collection of precomputed text embeddings and generating responses using GPT-3.5-turbo.
 
 ## Usage
 
