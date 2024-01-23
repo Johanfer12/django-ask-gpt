@@ -136,17 +136,15 @@ class ProcessFilesView(View):
         paragraphs = []
         current_paragraph = []
         word_count = 0
-        sentences = text.split('. ')
-        for sentence in sentences:
-            sentence = sentence.strip()
-            words = sentence.split()
-            word_count += len(words)
+        words = text.split()  # Dividir el texto en palabras
+        for word in words:
+            word_count += len(word.split())  # Contar las palabras en cada palabra
             if word_count <= max_words:
-                current_paragraph.append(sentence)
+                current_paragraph.append(word)
             else:
                 paragraphs.append(' '.join(current_paragraph))
-                current_paragraph = [sentence]
-                word_count = len(words)
+                current_paragraph = [word]
+                word_count = len(word.split())
         if current_paragraph:
             paragraphs.append(' '.join(current_paragraph))
         return paragraphs
